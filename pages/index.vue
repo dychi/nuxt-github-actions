@@ -1,36 +1,27 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        nuxt-github-actions
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+  <article class="container">
+    <div class="text-3xl rounded-md bg-green-600 text-white">
+      <h1>Display All Content</h1>
+      <nuxt-link to="/develop">develop</nuxt-link>
     </div>
-  </div>
+    <nuxt-content
+      class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto"
+      :document="page" />
+  </article>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { Context } from '@nuxt/types'
 
-export default Vue.extend({})
+export default Vue.extend({
+  async asyncData ({ $content, params, error }: Context) {
+    const page = await $content('hello').fetch()
+    return {
+      page
+    }
+  }
+})
 </script>
 
 <style>
@@ -39,42 +30,4 @@ export default Vue.extend({})
 @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
 */
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>
