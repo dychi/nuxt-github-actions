@@ -14,8 +14,13 @@
 import Vue from 'vue'
 import { Context } from '@nuxt/types'
 
+interface Article {
+  query: string
+  articles: Array<Object>
+}
+
 export default Vue.extend({
-  data () {
+  data () : Article {
     return {
       query: '',
       articles: []
