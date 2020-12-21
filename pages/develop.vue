@@ -1,19 +1,19 @@
 <template>
   <div class="bg-teal-900">
     <p>Input</p>
-    <input v-model="query" type="search" autocomplete="on" />
+    <input v-model="query" type="search" autocomplete="on">
 
     <ul v-if="articles.length">
       <li v-for="article of articles" :key="article.slug">
-        <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">{{ article.title }}</NuxtLink>
+        <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">
+          {{ article.title }}
+        </NuxtLink>
       </li>
     </ul>
   </div>
 </template>
 <script lang="ts">
 import Vue from 'vue'
-import { Context } from '@nuxt/types'
-
 
 export default Vue.extend({
   data () {

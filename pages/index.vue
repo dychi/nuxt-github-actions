@@ -2,20 +2,23 @@
   <article class="container mx-auto">
     <div class="text-3xl rounded-md bg-green-600 text-white text-center">
       <h1>Display All Content</h1>
-      <nuxt-link to="/develop">develop</nuxt-link>
+      <nuxt-link to="/develop">
+        develop
+      </nuxt-link>
     </div>
     <nuxt-content
       class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto"
-      :document="page" />
+      :document="page"
+    />
   </article>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { Context } from '@nuxt/types'
+// import { Context } from '@nuxt/types'
 
 export default Vue.extend({
-  async asyncData ({ $content, params, error }: Context) {
+  async asyncData ({ $content }) {
     const page = await $content('hello').fetch()
     return {
       page
