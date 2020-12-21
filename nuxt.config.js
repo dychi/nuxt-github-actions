@@ -45,5 +45,10 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+  },
+
+  // Static Site Generator Configuration (https://nuxtjs.org/docs/2.x/directory-structure/dist)
+  generate: {
+    // dir: 'docs'
   }
 }

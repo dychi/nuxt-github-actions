@@ -1,6 +1,6 @@
 <template>
   <article class="container mx-auto">
-    <div class="text-3xl rounded-md bg-green-600 text-white">
+    <div class="text-3xl rounded-md bg-green-600 text-white text-center">
       <h1>Display All Content</h1>
       <nuxt-link to="/develop">develop</nuxt-link>
     </div>
