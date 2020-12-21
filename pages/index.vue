@@ -1,5 +1,5 @@
 <template>
-  <article class="container">
+  <article class="container mx-auto">
     <div class="text-3xl rounded-md bg-green-600 text-white">
       <h1>Display All Content</h1>
       <nuxt-link to="/develop">develop</nuxt-link>

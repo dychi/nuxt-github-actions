@@ -14,20 +14,16 @@
 import Vue from 'vue'
 import { Context } from '@nuxt/types'
 
-interface Article {
-  query: string
-  articles: Array<Object>
-}
 
 export default Vue.extend({
-  data () : Article {
+  data () {
     return {
       query: '',
       articles: []
     }
   },
   watch: {
-    async query (query) {
+    async query (query: string) {
       if (!query) {
         this.articles = []
         return
